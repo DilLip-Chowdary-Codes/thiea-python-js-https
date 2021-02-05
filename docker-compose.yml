@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  theia-python-https:
+    restart: always
+    build: .
+    image: theia-customized-ide
+    container_name: theia-container
+    ports:
+      - "8000:8000"
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+      - "3000:3000"
+      - "10443:10443"
+      - "8111:10443"
+    volumes:
+      - "./Workspace/:/home/Workspace/"
+    environment:
+        token: s3cr3t
